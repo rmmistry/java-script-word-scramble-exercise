@@ -14,33 +14,31 @@
         var playing = true;
 
         while (playing) {
+
+            var randomIndex = Math.floor(Math.random() * WORDS.length);
+
             // Grab a random word from the WORDS array
-            var index = Math.floor(Math.random() * WORDS.length);
-            var wordChoice = WORDS[index];
-            //console.log (wordsChoice)
+            var randomWord = WORDS[randomIndex];
+            //consol.log (randomWord)
+
             // Grab the corresponding scrambled word from the SCRAMBLED array
-            var scrambledChoice = SCRAMBLED[index];
-            //console.log (scrambledChoice)
+            var scrambledWord = SCRAMBLED[randomIndex];
+            //console.log (scrambledWord)
 
-            //alert (wordsChoice)
-            //alert (scrambledChoice)
             // prompt the user to guess the original word when given the scrambled word
-            var userAnswer = prompt("Guess what words this is:" + scrambledChoice)
+            var guess = prompt("Guess what words this is:" + scrambledWord);
 
-                if (userAnswer != wordChoice){
-                    alert("Your answer is incorrect. The correct answer is: " + wordChoice);
-                }
-        
-
-           
-            // If the user guesses wrong, tell them they were wrong and the right word.
-            
             // If the user guesses the correct word, congratulate them.
+            // If the user guesses wrong, tell them they were wrong and the right word.
+            if (guess === randomWord){
+                alert("You got it! The word was: " + randomWord);
+            }
 
+            else if (guess !== randomWord){
+                alert("Nope! The word was: "+ randomWord);
+            }
+        
             playing = confirm("Press OK To keep playing or Cancel to quit");
-
-            // What does confirm() return?
-            // What does setting the playing variable do?
 
         }
         alert("goodbye!");
